@@ -20,6 +20,9 @@ Bundler.require(*Rails.groups)
 
 module BtsApi
   class Application < Rails::Application
+     # Adding cookies and session middleware
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -30,6 +33,12 @@ module BtsApi
 
     # Configuration for the application, engines, and railties goes here.
     #
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
@@ -40,5 +49,8 @@ module BtsApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.action_dispatch.cookies_same_site_protection = :strict
   end
 end

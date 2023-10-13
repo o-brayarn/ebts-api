@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.destroy_all
+p "Seeding user data ..."
+user1 = User.create!(username: "Admin Adam", email: "admin@example.com",  password: "admin1234", password_confirmation: "admin1234")
+user2 = User.create!(username: "Sammie Sam", email: "samsam@example.com", password: "samsam1234", password_confirmation: "samsam1234")
+user3 = User.create!(username: "Mary Marian", email: "mary@example.com",  password: "mary1234", password_confirmation: "mary1234")
+user4 = User.create!(username: "John Smith", email: "smithj@example.com",  password: "smith1234", password_confirmation: "smith1234")
+
