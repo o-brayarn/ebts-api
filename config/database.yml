@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: bts_api_production
-  username: bts_api
-  password: <%= ENV["BTS_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
