@@ -14,3 +14,6 @@ user2 = User.create!(username: "Sammie Sam", email: "samsam@example.com", passwo
 user3 = User.create!(username: "Mary Marian", email: "mary@example.com",  password: "mary1234", password_confirmation: "mary1234")
 user4 = User.create!(username: "John Smith", email: "smithj@example.com",  password: "smith1234", password_confirmation: "smith1234")
 
+p "Seeding charges"
+Charge.destroy_all
+Charge.create!([{origin: "Nairobi", destination: "Mombasa", price: "1500"}, {origin: "Nakuru", destination: "Nairobi", price: "450"}])
