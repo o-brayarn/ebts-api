@@ -16,4 +16,11 @@ user4 = User.create!(username: "John Smith", email: "smithj@example.com",  passw
 
 p "Seeding charges"
 Charge.destroy_all
-Charge.create!([{origin: "Nairobi", destination: "Mombasa", price: "1500"}, {origin: "Nakuru", destination: "Nairobi", price: "450"}])
+Charge.create!([
+    {origin: "Nairobi", destination: "Mombasa", price: "1500"}, 
+    {origin: "Nairobi", destination: "Nakuru", price: "450"},
+    {origin: "Nairobi", destination: "Kisumu", price: "1000"},
+    {origin: "Nairobi", destination: "Narok", price: "550"},
+    {origin: "Nairobi", destination: "Naivasha", price: "450"},
+    {origin: "Nairobi", destination: "Kilifi", price: "450"},
+    ])
